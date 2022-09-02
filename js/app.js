@@ -8,11 +8,14 @@ const loadCategoriesName = () => {
 };
 
 const showCategoriesName = response => {
+    const categoryUl = document.getElementById('category-ul');
     response.data.news_category.forEach(element => {
-        console.log(element.category_name);
+        const categoryLi = document.createElement('li');
+        categoryLi.innerText = element.category_name;
+        categoryUl.appendChild(categoryLi);
     });
 };
-// loadCategoriesName();
+loadCategoriesName();
 
 
 
