@@ -1,5 +1,4 @@
 // Fetching News Categories Name
-
 const loadCategoriesName = () => {
     const options = {method: 'GET'};
     fetch('https://openapi.programming-hero.com/api/news/categories', options)
@@ -13,11 +12,11 @@ const showCategoriesName = response => {
         console.log(element.category_name);
     });
 };
-
 // loadCategoriesName();
 
-// Fetching Category by Category ID
 
+
+// Fetching Category by Category ID
 const loadCategoriesById = (category_id) => {
     const options = {method: 'GET'};
     fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`, options)
@@ -42,9 +41,10 @@ const showCategoriesById = response => {
     });
     console.log('The number of categories are: ' + sortCategoriesArray.length);
 };
-
 // loadCategoriesById('02');
 
+
+// Load News By Id
 const loadNewsById = news_id => {
     const options = {method: 'GET'};
     fetch(`https://openapi.programming-hero.com/api/news/${news_id}`, options)
@@ -59,4 +59,4 @@ const showNewsById = response => {
     console.log(response.data[0].details);
 };
 
-loadNewsById('2e78e5e0310c2e9adbb6efb1a263e745');
+// loadNewsById('2e78e5e0310c2e9adbb6efb1a263e745');
