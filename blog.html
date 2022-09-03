@@ -18,7 +18,7 @@
     <header>
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container py-3 border-bottom">
+            <div class="container-fluid py-3">
                 <a class="navbar-brand" href="#">
                     <button class="btn btn-primary fs-5">Bangladesh</button> <span class="fs-5">News</span>
                 </a>
@@ -54,10 +54,125 @@
         <!-- Navbar End -->
 
         <!-- banner Start -->
-        <section>
-            <img src="" alt="">
+        <section class="banner-img d-flex justify-content-center align-items-center">
+            <h2 class="text-center">Interview Questions</h2>
         </section>
         <!-- banner End -->
+
+        <!-- accordion start -->
+        <section class="container mt-5">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <h3>01. What are the difference among var, let and const?</h3>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">The differences between var, let, and const variable declaration in
+                            JavaScript include:
+                            Variables declared with var and const are scoped to the immediate function body.
+                            Variables declared with the var keyword are hoisted. Hoisting means that the variable can be
+                            accessed in their enclosing
+                            scope even before they are declared.
+                            Variables declared with the let keyword are block-scoped, which means the variables will
+                            have scope to the immediate
+                            enclosing block.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <h3>02. What is the difference between arrow function and regular function?</h3>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>In regular function, we have to use return keyword to return any value. If we don’t
+                                    return anything then the function
+                                    will return undefined. Arrow functions behave in the same way when returning values.
+                                    If the arrow function contains one expression, we can omit the curly braces, and
+                                    then the expression will be implicitly
+                                    returned.
+                                </li>
+                                <li>
+                                    In regular function, Arguments keywords can be used to access the arguments of which
+                                    passed to function. Arrow functions do not have an arguments binding. However, if we
+                                    want to access arguments in an arrow function, we can use the rest operator.
+                                </li>
+                                <li>
+                                    In regular function, this changes according to the way that function is invoked.
+                                    <br>
+                                    <strong>Simple Invocation:</strong> <i>this</i> equals the global object or maybe
+                                    undefined if we are using strict mode. <br>
+                                    <strong>Method Invocation:</strong> <i>this</i> equals the object that owns the
+                                    method. <br>
+                                    <strong>Indirect Invocation:</strong> <i>this</i> equals the first argument. <br>
+                                    <strong>Constructor Invocation:</strong> <i>this</i> equals the newly created
+                                    instance. <br>
+                                    Arrow functions don’t have their own this, and they don’t redefine the value of this
+                                    within the function.
+
+                                    this inside an arrow function always refers to this from the outer context.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            <h3>03. What is the difference among map(), forEach(), filter() and find()?</h3>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>The map() method creates a new array populated with the results of calling a
+                                    provided function on every element in the
+                                    calling array.</li>
+                                <li>The forEach() method executes a provided function once for each array element.</li>
+                                <li>The filter() method creates a shallow copy of a portion of a given array, filtered
+                                    down to just the elements from the
+                                    given array that pass the test implemented by the provided function.</li>
+                                <li>The find() method returns the first element in the provided array that satisfies the
+                                    provided testing function. If no
+                                    values satisfy the testing function, undefined is returned.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseFour" aria-expanded="false"
+                            aria-controls="flush-collapseFour">
+                            <h3>04. Why should we use template string?</h3>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Template strings are a powerful feature of modern JavaScript
+                            released in ES6. It lets us insert/interpolate variables
+                            and expressions into strings without needing to concatenate like in older versions of
+                            JavaScript. It allows us to create
+                            strings that are complex and contain dynamic elements. So we should use template string.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- accordion End -->
     </header>
     <!-- Header Section End -->
 
