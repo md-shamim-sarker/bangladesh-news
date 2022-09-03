@@ -13,12 +13,17 @@ const showCategoriesName = response => {
     response.data.news_category.forEach(element => {
         const categoryLi = document.createElement('li');
         categoryLi.innerHTML = `
-            <button id='category-btn' class='btn btn-primary' onclick="loadCategoriesById('${element.category_id}', '${element.category_name}')">${element.category_name}</button>
+            <button id='category-btn' class='btn btn-primary' onclick="myFunction('${element.category_id}', '${element.category_name}')">${element.category_name}</button>
         `;
         categoryUl.appendChild(categoryLi);
     });
 };
 loadCategoriesName();
+
+const myFunction = (category_id, category_name) => {
+    toggleSpinner(true);
+    loadCategoriesById(category_id, category_name);
+};
 
 // Fetching Category by Category ID
 const loadCategoriesById = (category_id, category_name) => {
@@ -95,11 +100,13 @@ const showCategoriesById = (category, category_name) => {
         `;
             parentMain.appendChild(childDiv);
         });
+        toggleSpinner(false);
 
     } else {
         parentMain.innerHTML = `
             <h2 class='text-center text-warning'>No News Found.</h2>
         `;
+        toggleSpinner(false);
     }
     document.getElementById('item-numbers').innerText = sortCategoriesArray.length;
     document.getElementById('category-name').innerText = category_name;
@@ -138,14 +145,14 @@ const detailsModal = (_id) => {
     loadNewsById(_id);
 };
 
-const toggleSpinner = (isSpin) => {
-    const spinner = document.getElementById('spinner');
-    if(isSpin) {
-        spinner.classList.remove('d-none');
-    } else {
-        spinner.classList.add('d-none');
+
+// Spinner
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if(isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
     }
 };
-
-
-toggleSpinner(false);
