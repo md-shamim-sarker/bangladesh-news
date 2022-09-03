@@ -13,14 +13,14 @@ const showCategoriesName = response => {
     response.data.news_category.forEach(element => {
         const categoryLi = document.createElement('li');
         categoryLi.innerHTML = `
-            <button id='category-btn' class='btn btn-primary' onclick="myFunction('${element.category_id}', '${element.category_name}')">${element.category_name}</button>
+            <button id='category-btn' class='btn btn-primary' onclick="showNewsCategoryWise('${element.category_id}', '${element.category_name}')">${element.category_name}</button>
         `;
         categoryUl.appendChild(categoryLi);
     });
 };
 loadCategoriesName();
 
-const myFunction = (category_id, category_name) => {
+const showNewsCategoryWise = (category_id, category_name) => {
     toggleSpinner(true);
     loadCategoriesById(category_id, category_name);
 };
@@ -127,11 +127,11 @@ const loadNewsById = news_id => {
 const showNewsById = response => {
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = `
-        <div class="modal-header">
+                <div class="modal-header">
                     <img src="${response.data[0].image_url}" alt="" class="w-100">
                 </div>
                 <div class="modal-body">
-                    <h5 class="modal-title" id="exampleModalLabel">${response.data[0].title}</h5>
+                    <h5 class="modal-title">${response.data[0].title}</h5>
                     <p>${response.data[0].details}</p>
                 </div>
                 <div class="modal-footer">
