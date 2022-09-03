@@ -31,7 +31,6 @@ const loadCategoriesById = (category_id, category_name) => {
 
 // Show All Categoris by Id
 const showCategoriesById = (category, category_name) => {
-
     // Sort Operation Start
     const sortCategoriesArray = category.data.sort((a, b) => {
         return b.total_view - a.total_view;
@@ -49,7 +48,7 @@ const showCategoriesById = (category, category_name) => {
             const totalView = element.total_view ? element.total_view : '0';
             const details = element.details.slice(0, 500) + '...';
             const childDiv = document.createElement('div');
-            childDiv.classList.add('grid', 'p-2');
+            childDiv.classList.add('grid', 'py-3', 'my-5');
             childDiv.innerHTML = `
             <div>
                 <img src="${element.thumbnail_url}" alt="thumbnail image" class="w-100">
@@ -96,6 +95,7 @@ const showCategoriesById = (category, category_name) => {
         `;
             parentMain.appendChild(childDiv);
         });
+
     } else {
         parentMain.innerHTML = `
             <h2 class='text-center text-warning'>No News Found.</h2>
@@ -138,4 +138,14 @@ const detailsModal = (_id) => {
     loadNewsById(_id);
 };
 
-// loadNewsById('2e78e5e0310c2e9adbb6efb1a263e745');
+const toggleSpinner = (isSpin) => {
+    const spinner = document.getElementById('spinner');
+    if(isSpin) {
+        spinner.classList.remove('d-none');
+    } else {
+        spinner.classList.add('d-none');
+    }
+};
+
+
+toggleSpinner(false);
