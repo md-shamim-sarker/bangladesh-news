@@ -11,23 +11,20 @@ const showCategoriesName = response => {
     const categoryUl = document.getElementById('category-ul');
     response.data.news_category.forEach(element => {
         const categoryLi = document.createElement('li');
-        // categoryLi.setAttribute('onclick', 'categoryClickHandler()');
+        // categoryLi.innerHTML = `
+        //     <button onclick="loadCategoriesById('${category.data[0].category_id}')">${element.category_name}</button>
+        // `;
         categoryLi.innerText = element.category_name;
         categoryUl.appendChild(categoryLi);
+        // categoryLi.setAttribute('onclick', `${loadCategoriesById(response.data[0].category_id)}`);
     });
 };
 loadCategoriesName();
 
-// const categoryClickHandler = () => {
-//     const options = {method: 'GET'};
-//     fetch('https://openapi.programming-hero.com/api/news/categories', options)
-//         .then(response => response.json())
-//         .then(response => console.log(response.data))
-//         .catch(err => console.error(err));
-// };
+
 
 // Fetching Category by Category ID
-const loadCategoriesById = (category_id) => {
+const loadCategoriesById = category_id => {
     const options = {method: 'GET'};
     fetch(`https://openapi.programming-hero.com/api/news/category/${category_id}`, options)
         .then(response => response.json())
@@ -35,8 +32,8 @@ const loadCategoriesById = (category_id) => {
         .catch(err => console.error(err));
 };
 
-const showCategoriesById = response => {
-    const sortCategoriesArray = response.data.sort((a, b) => {
+const showCategoriesById = category => {
+    const sortCategoriesArray = category.data.sort((a, b) => {
         return b.total_view - a.total_view;
     });
     const parentMain = document.getElementById('parent-main');
@@ -92,8 +89,9 @@ const showCategoriesById = response => {
         parentMain.appendChild(childDiv);
     });
     console.log('The number of categories are: ' + sortCategoriesArray.length);
+    console.log(category.data[0].category_id);
 };
-loadCategoriesById('01');
+loadCategoriesById('02');
 
 
 // Load News By Id
