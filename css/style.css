@@ -2,18 +2,6 @@ body {
     background-color: #F8F9FA;
 }
 
-#category-ul li {
-    cursor: pointer;
-    padding: 5px;
-}
-
-#category-ul li:hover {
-    color: blue;
-    background-color: #d8d8f0;
-    padding: 5px;
-    border-radius: 10px;
-}
-
 .sort-select {
     width: fit-content;
 }

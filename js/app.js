@@ -57,11 +57,11 @@ const showCategoriesById = (category, category_name) => {
             <div class="p-2 d-flex flex-column justify-content-between">
                 <div>
                     <h2>${element.title}</h2>
-                    <p>${details}</p>
+                    <p>${details} <span onclick="detailsModal('${element._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="text-primary text-decoration-underline d-md-none d-lg-none">See More</span> </p>
                 </div>
                 <div
                     class="d-flex flex-column flex-md-row flex-lg-row gap-3 gap-md-0 gap-lg-0 justify-content-between align-items-start me-0 me-md-4 me-lg-5">
-                    <div class="d-flex gap-2 text-center">
+                    <div class="d-flex gap-2">
                         <div>
                             <img src="${element.author.img}" alt="author_image" class="author-image">
                         </div>
@@ -75,7 +75,7 @@ const showCategoriesById = (category, category_name) => {
                             <img src="./images/eye.svg" alt="">
                             ${totalView}
                         </div>
-                        <div>
+                        <div class="px-0 px-md-5 px-lg-5">
                             <img src="./images/star-fill.svg" alt="">
                             <img src="./images/star-fill.svg" alt="">
                             <img src="./images/star-fill.svg" alt="">
@@ -83,8 +83,11 @@ const showCategoriesById = (category, category_name) => {
                             <img src="./images/star-half.svg" alt="">
                         </div>
                         <div>
-                            <button class="border-0 bg-transparent">
-                                <img src="./images/arrow-right.svg" alt="">
+
+                        <!-- Button trigger modal -->
+
+                            <button onclick="detailsModal('${element._id}')" class="btn btn-primary d-none d-md-block d-lg-block" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                See More <img src="./images/arrow-right.svg" alt="" class="">
                             </button>
                         </div>
                     </div>
@@ -115,9 +118,24 @@ const loadNewsById = news_id => {
 };
 
 const showNewsById = response => {
-    console.log(response.data[0].image_url);
-    console.log(response.data[0].title);
-    console.log(response.data[0].details);
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.innerHTML = `
+        <div class="modal-header">
+                    <img src="${response.data[0].image_url}" alt="" class="w-100">
+                </div>
+                <div class="modal-body">
+                    <h5 class="modal-title" id="exampleModalLabel">${response.data[0].title}</h5>
+                    <p>${response.data[0].details}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+    `;
+};
+
+// Details Modal
+const detailsModal = (_id) => {
+    loadNewsById(_id);
 };
 
 // loadNewsById('2e78e5e0310c2e9adbb6efb1a263e745');
