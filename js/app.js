@@ -76,22 +76,22 @@ const showCategoriesById = (category, category_name) => {
                     </div>
                     <div class="d-flex gap-5">
                         <div>
-                            <img src="./images/eye.svg" alt="">
+                            <img src="./images/eye.svg" alt="image">
                             ${totalView}
                         </div>
                         <div class="px-0 px-md-5 px-lg-5">
-                            <img src="./images/star-fill.svg" alt="">
-                            <img src="./images/star-fill.svg" alt="">
-                            <img src="./images/star-fill.svg" alt="">
-                            <img src="./images/star-fill.svg" alt="">
-                            <img src="./images/star-half.svg" alt="">
+                            <img src="./images/star-fill.svg" alt="image">
+                            <img src="./images/star-fill.svg" alt="image">
+                            <img src="./images/star-fill.svg" alt="image">
+                            <img src="./images/star-fill.svg" alt="image">
+                            <img src="./images/star-half.svg" alt="image">
                         </div>
                         <div>
 
                         <!-- Button trigger modal -->
 
                             <button onclick="detailsModal('${element._id}')" class="btn btn-primary d-none d-md-block d-lg-block" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                See More <img src="./images/arrow-right.svg" alt="" class="">
+                                See More <img src="./images/arrow-right.svg" alt="image" class="">
                             </button>
                         </div>
                     </div>
@@ -128,14 +128,28 @@ const showNewsById = response => {
     const modalContainer = document.getElementById('modal-container');
     modalContainer.innerHTML = `
                 <div class="modal-header">
-                    <img src="${response.data[0].image_url}" alt="" class="w-100">
+                    <img src="${response.data[0].image_url}" alt="image" class="w-100">
                 </div>
                 <div class="modal-body">
-                    <h5 class="modal-title">${response.data[0].title}</h5>
+                    <h5 class="modal-title">${response.data[0].title}</h5>            
+                    <div class="d-flex gap-2 my-4">
+                        <div>
+                            <img src="${response.data[0].author.img}" alt="author_image" class="author-image">
+                        </div>
+                        <div>
+                            <span>${response.data[0].author.name ? response.data[0].author.name : 'Author Not Found'}</span><br>
+                            <span>Date: ${response.data[0].author.published_date}</span>
+                        </div>
+                    </div>
                     <p>${response.data[0].details}</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                        Total View: <img src="./images/eye.svg" alt="image"> ${response.data[0].total_view ? response.data[0].total_view : 'No View'}
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
     `;
 };
